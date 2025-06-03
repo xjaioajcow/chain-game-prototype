@@ -16,10 +16,10 @@ contract GameCore is Ownable {
     uint256 public sailDurationSafe = 6 hours;
     uint256 public sailDurationRisk = 2 hours;
 
-    constructor(address _gameToken, address _gameItem) {
-        gameToken = IERC20(_gameToken);
-        gameItem  = IERC721(_gameItem);
-    }
+constructor(address _gameToken, address _gameItem) Ownable(msg.sender) {
+    gameToken = IERC20(_gameToken);
+    gameItem  = IERC721(_gameItem);
+}}
 
     /// @notice Plant land
     function plantLand(uint256 landId) external {
